@@ -39,4 +39,6 @@ def test_calendar_finding(android_driver:WebDriver, wait: WebDriverWait) -> None
                 raise NoSuchElementException("Нет календаря в данном списке")
         last_elements = elements
     with allure.step("Финальная проверка успешности выполнения теста"):
-        assert True
+        element = wait.until(
+                EC.presence_of_element_located((AppiumBy.ID, 'com.csdroid.pkg:id/parentPanel')))
+        assert element is not None, "Элемента нет"

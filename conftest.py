@@ -15,7 +15,7 @@ def android_driver() -> Generator[WebDriver, None, None]:
     with allure.step("Инициализация Appium драйвера и запуск приложения"):
         options = AppiumOptions()
         options.load_capabilities({
-            "appium:undefined": "Pixel_10_Pro",
+            "appium:deviceName": "Pixel_10_Pro",
             "platformName": "Android",
             "appium:automationName": "UiAutomator2"})
         android_driver = webdriver.Remote(APPIUM_SERVER_URL, options=options)
